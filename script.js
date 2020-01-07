@@ -11,3 +11,8 @@ $.ajax({
 }).then(function (response) {
     console.log(response)
 })
+
+// on click event to hide text "search" when user clicks on search bar.
+$('#search').on('click', function(){
+    $('#material-search').hide();
+})
