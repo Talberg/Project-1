@@ -4,7 +4,8 @@
 var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 cityName = 'denver';
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&q=' + cityName + '&units=imperial'
-var site = 'cats'
+var siteImg = 'cats'
+var searchTerm = 'colorado'
 $.ajax({
     url: queryURL,
     method: "GET"
@@ -13,7 +14,7 @@ $.ajax({
 })
 
 var imgur =  {
-    "url": `https://api.imgur.com/3/gallery/t/${site}/`,
+    "url": `https://api.imgur.com/3/gallery/t/${siteImg}/`,
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -26,7 +27,15 @@ var imgur =  {
     console.log(response);
   });
 
+  var searchResults = {
+    "url": `https://developer.nps.gov/api/v1/parks?parkCode=&limit=10&q=${searchTerm}&api_key=Pdcuwde0uYcGlFQwqha0ym4sxfIyAh5hvWQ7k4qV`,
+    "method": "GET",
+    "timeout": 0,
+  };
   
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 
 
   
