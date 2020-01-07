@@ -5,7 +5,7 @@ var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 cityName = 'denver';
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&q=' + cityName + '&units=imperial'
 var siteImg = 'cats'
-var searchTerm = 'colorado'
+var searchTerm 
 $.ajax({
     url: queryURL,
     method: "GET"
@@ -31,10 +31,23 @@ var imgur =  {
     "url": `https://developer.nps.gov/api/v1/parks?parkCode=&limit=10&q=${searchTerm}&api_key=Pdcuwde0uYcGlFQwqha0ym4sxfIyAh5hvWQ7k4qV`,
     "method": "GET",
     "timeout": 0,
-  };
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
-
-
+    
+    }.then(function(response){
+      for(var i = 0;  i <= 9; i ++){
+        $(".fullName").text(response.data[i].fullName);
+      }
+    }
+    
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    })
+    
+    
+    
+    // $(".description").text(response.data[i].description);
+    // $(".directionsInfo").text("Directions: " + response.data[i].directionsInfo);
+    // $(".entranceFees").text("Entrance Fees: " + response.data[i].entranceFees);
+    // $(".entrancePasses").text("Entrance Passes: " + response.data[i].entrancePasses);
+    // $(".standardHours").text("Park Hours: " + response.data[i].operatingHours.standardHours);
+    // $(".email").text("Email: " + response.data[i].contacts.emailAddresses);
