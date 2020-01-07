@@ -3,9 +3,11 @@
 // Open Weather API call. This pulls information on current weather for the city.
 var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 cityName = 'denver';
+var lat = ''
+var log = ''
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&q=' + cityName + '&units=imperial'
 var siteImg = 'cats'
-var searchTerm = ''
+var searchTerm = 'CO'
 //weather 
 $.ajax({
     url: queryURL,
@@ -36,9 +38,16 @@ var imgur =  {
   };
   
   $.ajax(searchResults).done(function (response) {
+    ;
+    var latLong = response.data[0].latLong
+    console.log(latLong[0])
+    
+
     console.log(response);
   });
 
-
+  $('#btnID').on('click', function(event){
+    searchTerm = $('#states').val()
+  } )
 
   
