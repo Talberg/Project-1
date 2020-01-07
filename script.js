@@ -11,3 +11,16 @@ $.ajax({
 }).then(function (response) {
     console.log(response)
 })
+
+var imgur = {
+    "url": "https://api.imgur.com/3/gallery/t/trail_of_tears/",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+      "Authorization": "Client-ID 654f4769131264e"
+    },
+  };
+  
+  $.ajax(imgur).done(function (response) {
+    console.log(response);
+  });
