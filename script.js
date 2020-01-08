@@ -58,6 +58,11 @@ $('#button').on('click', function (event) {
   
     
     for (var i = 0; i <= 9 && i < response.data.length; i++) {
+<<<<<<< HEAD
+      $(".fullName").text(response.data[i].fullName);
+      //splits the lat and long 
+    latLongGen(i)
+=======
       var parkCard= $("<div class='card'> <div class='card-title'> <h3 class='park'>" + response.data[i].fullName + "</h3> </div> </div>")
 
       parkCard.data("data", {fullName: response.data[i].fullName, 
@@ -80,6 +85,7 @@ $('#button').on('click', function (event) {
       $("#cards-go-here").append(parkCard);
       
     }
+>>>>>>> master
 
     // $(".wrapperDivForParks").append(park);
   
@@ -87,6 +93,40 @@ $('#button').on('click', function (event) {
 
 })
 
+<<<<<<< HEAD
+
+    }
+
+    console.log(lat);
+    console.log(long)
+  })
+  
+  console.log(searchTerm)
+})
+
+    // $(".description").text(response.data[i].description);
+    // $(".directionsInfo").text("Directions: " + response.data[i].directionsInfo);
+    // $(".entranceFees").text("Entrance Fees: " + response.data[i].entranceFees);
+    // $(".entrancePasses").text("Entrance Passes: " + response.data[i].entrancePasses);
+    // $(".standardHours").text("Park Hours: " + response.data[i].operatingHours.standardHours);
+    // $(".email").text("Email: " + response.data[i].contacts.emailAddresses);
+    function latLongGen(i){
+      var searchResults = {
+        "url": `https://developer.nps.gov/api/v1/parks?parkCode=&limit=10&stateCode=${searchTerm}&api_key=Pdcuwde0uYcGlFQwqha0ym4sxfIyAh5hvWQ7k4qV`,
+        "method": "GET",
+        "timeout": 0,
+      };
+      $.ajax(searchResults).done(function (response){
+      var latLong = response.data[i].latLong
+    var x = latLong.split(',')
+    latFull = x[0]
+    longFull = x[1]
+    lat = latFull.split(':')
+    long = longFull.split(':')
+    
+      })
+    }
+=======
 function parkStorage(data){
   localStorage.setItem("parkData", JSON.stringify(data));
 }
@@ -97,6 +137,7 @@ parkStorage($(this).data("data"));
 })
 
 function weather(lat,long){
+>>>>>>> master
 
   var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&lat=' + lat + '&lon=' + long + '&units=imperial'
@@ -112,6 +153,12 @@ console.log(response)
 
 }
 
+<<<<<<< HEAD
+  
+  
+    })
+=======
+>>>>>>> master
 
 // later, when the user clicks on one of the park/location 'more info' links, write code to grab the .data 
 // function parkStorage(){
