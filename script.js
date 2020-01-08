@@ -58,20 +58,16 @@ searchTerm = $('#states').val()
     for (var i = 0; i <= 9 && i < response.data.length; i++) {
       $(".fullName").text(response.data[i].fullName);
       //splits the lat and long 
-    var latLong = response.data[i].latLong
-    var x = latLong.split(',')
-    latFull = x[0]
-    longFull = x[1]
-    lat = latFull.split(':')
-    long = longFull.split(':')
-    console.log(lat)
+    latLongGen(i)
 
 
      weather(lat[1],long[1])
 
+
     }
 
-    console.log(response);
+    console.log(lat);
+    console.log(long)
   })
   
   console.log(searchTerm)
@@ -83,12 +79,21 @@ searchTerm = $('#states').val()
     // $(".entrancePasses").text("Entrance Passes: " + response.data[i].entrancePasses);
     // $(".standardHours").text("Park Hours: " + response.data[i].operatingHours.standardHours);
     // $(".email").text("Email: " + response.data[i].contacts.emailAddresses);
-    function latLongGen(){
+    function latLongGen(i){
+      var searchResults = {
+        "url": `https://developer.nps.gov/api/v1/parks?parkCode=&limit=10&stateCode=${searchTerm}&api_key=Pdcuwde0uYcGlFQwqha0ym4sxfIyAh5hvWQ7k4qV`,
+        "method": "GET",
+        "timeout": 0,
+      };
+      $.ajax(searchResults).done(function (response){
       var latLong = response.data[i].latLong
     var x = latLong.split(',')
-    lat = x[0]
-    console.log(lat)
-    long = x[1]
+    latFull = x[0]
+    longFull = x[1]
+    lat = latFull.split(':')
+    long = longFull.split(':')
+    
+      })
     }
 
     function weather(lat,long){
@@ -102,7 +107,8 @@ searchTerm = $('#states').val()
   method: "GET"
     }).then(function (response) {
 
-  console.log(response)
+  
+  
     })
 
     }
