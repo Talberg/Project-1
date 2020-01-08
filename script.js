@@ -4,7 +4,7 @@
 var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 cityName = 'denver';
 var lat = ''
-var log = ''
+var long = ''
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&q=' + cityName + '&units=imperial'
 var siteImg = 'cats'
 var searchTerm
@@ -51,10 +51,24 @@ searchTerm = $('#states').val()
 
 
   $.ajax(searchResults).done(function (response) {
-    var latLong = response.data[0].latLong
-    console.log(latLong[0])
+    
+
+    console.log(long)
+    console.log(lat)
     for (var i = 0; i <= 9 && i < response.data.length; i++) {
       $(".fullName").text(response.data[i].fullName);
+    var latLong = response.data[i].latLong
+    var x = latLong.split(',')
+    console.log(x)
+    latFull = x[0]
+    longFull = x[1]
+    lat = latFull.split(':')
+    long = longFull.split(':')
+    console.log(lat)
+
+
+     weather(lat[1],long[1])
+
     }
 
     console.log(response);
@@ -69,3 +83,26 @@ searchTerm = $('#states').val()
     // $(".entrancePasses").text("Entrance Passes: " + response.data[i].entrancePasses);
     // $(".standardHours").text("Park Hours: " + response.data[i].operatingHours.standardHours);
     // $(".email").text("Email: " + response.data[i].contacts.emailAddresses);
+    function latLongGen(){
+      var latLong = response.data[i].latLong
+    var x = latLong.split(',')
+    lat = x[0]
+    console.log(lat)
+    long = x[1]
+    }
+
+    function weather(lat,long){
+
+      var apiKey = '25f5253d7be788ad89940c40b9d3c859';
+    var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&lat=' + lat + '&lon=' + long + '&units=imperial'
+
+
+    $.ajax({
+  url: queryURL,
+  method: "GET"
+    }).then(function (response) {
+
+  console.log(response)
+    })
+
+    }
