@@ -57,9 +57,9 @@ searchTerm = $('#states').val()
     console.log(lat)
     for (var i = 0; i <= 9 && i < response.data.length; i++) {
       $(".fullName").text(response.data[i].fullName);
+      //splits the lat and long 
     var latLong = response.data[i].latLong
     var x = latLong.split(',')
-    console.log(x)
     latFull = x[0]
     longFull = x[1]
     lat = latFull.split(':')
