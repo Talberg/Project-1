@@ -4,7 +4,7 @@
 var apiKey = '25f5253d7be788ad89940c40b9d3c859';
 cityName = 'denver';
 var lat = ''
-var log = ''
+var long = ''
 var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&q=' + cityName + '&units=imperial'
 var siteImg = 'cats'
 var searchTerm; 
@@ -67,7 +67,15 @@ $('#button').on('click', function (event) {
        entrancePasses: response.data[i].entrancePasses});
       //  standardHours: response.data[i].operatingHours.standardHours,
       //  email: response.data[i].contacts.emailAddresses});
-
+      var latLong = response.data[i].latLong
+      var x = latLong.split(',')
+      latFull = x[0]
+      longFull = x[1]
+      
+      // console.log(lat)
+  
+  
+      //  weather(lat[1],long[1])
       console.log(parkCard)
       $("#cards-go-here").append(parkCard);
       
@@ -88,7 +96,21 @@ $("#cards-generated").on("click", ".card", function() {
 parkStorage($(this).data("data"));
 })
 
+function weather(lat,long){
 
+  var apiKey = '25f5253d7be788ad89940c40b9d3c859';
+var queryURL = 'http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=' + apiKey + '&lat=' + lat + '&lon=' + long + '&units=imperial'
+
+
+$.ajax({
+url: queryURL,
+method: "GET"
+}).then(function (response) {
+
+console.log(response)
+})
+
+}
 
 
 // later, when the user clicks on one of the park/location 'more info' links, write code to grab the .data 
