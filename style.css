@@ -27,3 +27,6 @@ img {
     width: 50px;
     padding: 20px 70px 5px;
 }
+.clickable{
+    float: left;
+}
