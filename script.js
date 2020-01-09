@@ -48,6 +48,9 @@ $('#button').on('click', function (event) {
 //pulls the lat & long then splits into usable data 
     
 
+
+    $("#cards-generated").empty();
+ 
     //$("#").empty();
     for (var i = 0; i <= 9 && i < response.data.length; i++) {var latLong = response.data[i].latLong
     var x = latLong.split(',')
@@ -57,10 +60,10 @@ $('#button').on('click', function (event) {
     long = longFull.split(':')
 
     var latLong = response.data[0].latLong;
+
       var parkCard = $(`
-    <div class="row clickable" >
-      <div class="col s5 offset-s4">
-          <div class="card">
+
+          <div class="card clickable">
               <div class="card-image">
                   <img class='npsImg' src="npsLogo.png">
                   </div>
@@ -72,8 +75,7 @@ $('#button').on('click', function (event) {
                   <a href="#">More Info</a>
               </div>
           </div>
-      </div>
-    </div>
+
   `)
 
       parkCard.data("data", {
@@ -126,12 +128,12 @@ function latLongGen(i) {
 function parkStorage(data) {
   localStorage.setItem("parkData", JSON.stringify(data));
 }
-$("#cards-generated").on("click", ".card-action a", function(event) {
+$("#cards-generated").on("click", ".card-action a", function (event) {
   event.preventDefault();
 })
 $("#cards-generated").on("click", ".clickable", function (event) {
   event.preventDefault();
-  
+
   parkStorage($(this).data("data"));
   window.location.replace('moreINFO.html')
 })

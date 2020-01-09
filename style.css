@@ -27,6 +27,9 @@ label {
     width: 50px;
     padding: 20px 70px 5px;
 }
+.clickable{
+    float: left;}
+    
 #photos{
     z-index: 100;
 }
