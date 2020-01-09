@@ -51,13 +51,12 @@ $('#button').on('click', function (event) {
     //$("#").empty();
     for (var i = 0; i <= 9 && i < response.data.length; i++) {
       var parkCard = $(`
-    <div class="row clickable" >
-      <div class="col s5 offset-s4">
-          <div class="card">
+    
+          <div class="card clickable">
               <div class="card-image">
                   <img src="npsLogo.png">
-                  </div>
-                  <div class="card-content">
+              </div>
+              <div class="card-content">
                   <span class="card-title">${response.data[i].fullName}</span>
                   <p></p>
               </div>
@@ -65,8 +64,7 @@ $('#button').on('click', function (event) {
                   <a href="#">More Info</a>
               </div>
           </div>
-      </div>
-    </div>
+    
   `)
 
       parkCard.data("data", {

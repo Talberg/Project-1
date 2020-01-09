@@ -21,9 +21,16 @@ label {
     background-color: #985A08;
 }
 img {
-    
     align-content: center;
     height: 200px;
     width: 50px;
     padding: 20px 70px 5px;
+}
+.clickable{
+    float: left;
+    margin: 20px auto;
+}
+.card-content{
+    width: 400px;
+    height: 60px;
 }
