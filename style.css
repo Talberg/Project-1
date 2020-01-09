@@ -20,10 +20,13 @@ label {
 .waves-light{
     background-color: #985A08;
 }
-img {
+.npsImg {
     
     align-content: center;
     height: 200px;
     width: 50px;
     padding: 20px 70px 5px;
+}
+#photos{
+    z-index: 100;
 }
