@@ -20,7 +20,7 @@ label {
 .waves-light{
     background-color: #985A08;
 }
-img {
+.npsImg {
     
     align-content: center;
     height: 200px;
@@ -28,5 +28,8 @@ img {
     padding: 20px 70px 5px;
 }
 .clickable{
-    float: left;
+    float: left;}
+    
+#photos{
+    z-index: 100;
 }

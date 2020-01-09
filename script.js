@@ -45,16 +45,27 @@ $('#button').on('click', function (event) {
 
   //search
   $.ajax(searchResults).done(function (response) {
+//pulls the lat & long then splits into usable data 
+    
+
+
+    $("#cards-generated").empty();
+ 
+    //$("#").empty();
+    for (var i = 0; i <= 9 && i < response.data.length; i++) {var latLong = response.data[i].latLong
+    var x = latLong.split(',')
+    latFull = x[0]
+    longFull = x[1]
+    lat = latFull.split(':')
+    long = longFull.split(':')
 
     var latLong = response.data[0].latLong;
 
-    $("#cards-generated").empty();
-    for (var i = 0; i <= 9 && i < response.data.length; i++) {
       var parkCard = $(`
 
           <div class="card clickable">
               <div class="card-image">
-                  <img src="npsLogo.png">
+                  <img class='npsImg' src="npsLogo.png">
                   </div>
                   <div class="card-content">
                   <span class="card-title">${response.data[i].fullName}</span>
@@ -72,7 +83,9 @@ $('#button').on('click', function (event) {
         description: response.data[i].description,
         directionsInfo: response.data[i].directionsInfo,
         entranceFees: response.data[i].entranceFees,
-        entrancePasses: response.data[i].entrancePasses
+        entrancePasses: response.data[i].entrancePasses,
+        Lat: lat[1],
+        Long: long[1],
       });
       //  standardHours: response.data[i].operatingHours.standardHours,
       //  email: response.data[i].contacts.emailAddresses});
