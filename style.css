@@ -28,7 +28,13 @@ label {
     padding: 20px 70px 5px;
 }
 .clickable{
-    float: left;}
+    float: left;
+    margin: 20px auto;
+}
+.card-content{
+    width: 400px;
+    height: 60px;}
+    /* float: left;} */
     
 #photos{
     z-index: 100;

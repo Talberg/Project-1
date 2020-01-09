@@ -72,10 +72,9 @@ $('#button').on('click', function (event) {
                   <p></p>
               </div>
               <div class="card-action">
-                  <a href="#">More Info</a>
+                  <a href="moreINFO.html">More Info</a>
               </div>
           </div>
-
   `)
 
       parkCard.data("data", {
