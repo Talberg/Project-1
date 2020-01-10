@@ -15,7 +15,7 @@ function navigateMoreINFO(){
     console.log(getPark)
     
     var photos = {
-    "url": `https://api.pexels.com/v1/search?query=${getPark.fullName}&per_page=15&page=1`,
+    "url": `https://api.pexels.com/v1/search?query=${getPark.name}&per_page=15&page=1`,
     "method": "GET",
     "timeout": 0,
     "headers": {
