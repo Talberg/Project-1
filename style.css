@@ -39,3 +39,6 @@ label {
 #photos{
     z-index: 100;
 }
+body{
+    background-image: url('background-img.jpg');
+}
